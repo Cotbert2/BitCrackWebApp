@@ -9,17 +9,17 @@ import { TitleCasePipe } from '@angular/common';
 })
 export class AboutComponent {
   trustedCompanies : IImageInfo[] = [
-    { src: '/img/microsoft.jpg', alt: 'Microsoft' },
-    { src: '/img/tesla_logo.png', alt: 'Tesla' },
-    { src: '/img/google_logo.png', alt: 'Google' },
-    { src: '/img/spotify.png', alt: 'Spotify' },
-    { src: '/img/meta.png', alt: 'Meta' },
-    { src: '/img/pepsi.png', alt: 'Pepsi' },
-    { src: '/img/pinterest.png', alt: 'Pinterest' },
-    { src: '/img/nike.webp', alt: 'Nike' },
-    { src: '/img/mac.jpg', alt: 'Apple' },
-    { src: '/img/netfliix.png', alt: 'Netflix' },
-    { src: '/img/hbo.svg', alt: 'HBO' }
+    { src: 'img/microsoft.jpg', alt: 'Microsoft' },
+    { src: 'img/tesla_logo.png', alt: 'Tesla' },
+    { src: 'img/google_logo.png', alt: 'Google' },
+    { src: 'img/spotify.png', alt: 'Spotify' },
+    { src: 'img/meta.png', alt: 'Meta' },
+    { src: 'img/pepsi.png', alt: 'Pepsi' },
+    { src: 'img/pinterest.png', alt: 'Pinterest' },
+    { src: 'img/nike.webp', alt: 'Nike' },
+    { src: 'img/mac.jpg', alt: 'Apple' },
+    { src: 'img/netfliix.png', alt: 'Netflix' },
+    { src: 'img/hbo.svg', alt: 'HBO' }
   ];
 
   technologyStack : IiconInfo[] = [
