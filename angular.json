@@ -39,7 +39,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/BitCrackWebApp/",
+              
               "budgets": [
                 {
                   "type": "initial",
