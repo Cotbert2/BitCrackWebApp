@@ -42,42 +42,18 @@
     <!-- Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <div 
-            *ngFor="let service of filteredServices(); trackBy: trackByServiceId"
-            class="bg-purple-50 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1">
-            
-            <!-- Service Icon -->
-            <div class="text-pink-500 text-4xl mb-4 text-center">
-                <i [class]="getServiceIcon(service.id)"></i>
-            </div>
-            
-            <!-- Service Name -->
-            <h3 class="text-xl font-semibold text-purple-800 mb-3 text-center">
-                {{ service.name }}
-            </h3>
-            
-            <!-- Description -->
-            <p class="text-gray-600 mb-4 text-center min-h-[60px]">
-                {{ service.description }}
-            </p>
-            
-            <!-- Price with currency pipe -->
-            <div class="text-center">
-                <p class="text-2xl font-bold text-pink-500 mb-4">
-                    {{ service.price | currency:'USD':'symbol':'1.0-0' }}
-                </p>
-                
-                <!-- Discounted price (example of additional pipe usage) -->
-                <p class="text-sm text-gray-500 line-through">
-                    Regular price: {{ service.price * 1.2 | currency:'USD':'symbol':'1.0-0' }}
-                </p>
-                
-                <a href="mailto:info@bitcrack.com?subject=Request%20Quote%20for%20{{service.name}}" 
-                    class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-600 transition-all mt-2 inline-block text-center">
-                     Request Quote
-                </a>
-            </div>
+            *ngFor="let service of filteredServices(); trackBy: trackByServiceId">
+            <app-service-detail [service]="service"></app-service-detail>
         </div>
     </div>
+
+    <!-- Message when no services -->
+    <div *ngIf="filteredServices().length === 0" class="text-center py-12">
+        <p class="text-gray-500 text-lg">No services found in the selected price range.</p>
+    </div>
+
+
+
 
     <!-- Message when no services -->
     <div *ngIf="filteredServices().length === 0" class="text-center py-12">

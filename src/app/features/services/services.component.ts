@@ -2,10 +2,11 @@ import { Component, signal, inject } from '@angular/core';
 import { Product } from '../../core/models';
 import { ServicesService } from '../../core/services';
 import { CommonModule } from '@angular/common';
+import { ServiceDetailComponent } from './service-detail/service-detail.component';
 
 @Component({
   selector: 'app-services',
-  imports: [CommonModule],
+  imports: [CommonModule,ServiceDetailComponent],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
