@@ -1,7 +1,9 @@
 <section class="about">
     <!-- WHY BITCRACK -->
     <div class="section why">
-        <h2>Why Choose Bitcrack?</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-purple-900 mb-4">
+                {{'why choose' | titlecase}} <span class="text-pink-500">{{'Bitcrack' | titlecase}}</span>
+            </h2>
         <div class="features">
             <div class="feature">
                 <h3>Security-First Development</h3>
@@ -20,7 +22,9 @@
 
     <!-- OUR PHILOSOPHY -->
     <div class="section philosophy">
-        <h2>Our Philosophy</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-purple-900 mb-4">
+                {{'our' | titlecase}} <span class="text-pink-500">{{'Philosophy' | titlecase}}</span>
+            </h2>
         <p>
             At <strong>Bitcrack</strong>, we believe that software should not only solve problems but also inspire
             confidence.
@@ -30,7 +34,9 @@
 
     <!-- TRUST SECTION -->
     <div class="section trust">
-        <h2>Trusted by</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-purple-900 mb-4">
+                {{'trusted' | titlecase}} <span class="text-pink-500">{{'by' | titlecase}}</span>
+            </h2>
         <div class="arousel-wrapper">
 
             <div class="carousel-track">
@@ -46,7 +52,11 @@
 
     <!-- TECH STACK -->
     <div class="section stack">
-        <h2>Technology Stack</h2>
+   <h2 class="text-4xl md:text-5xl font-bold text-purple-900 mb-4">
+                {{'Tech' | titlecase}} <span class="text-pink-500">{{'Stack' | titlecase}}</span>
+            </h2>
+   
+        
         <div class="stack-icons">
             @for (tech of technologyStack; track tech.title) {
                 <i [class]="tech.class" [title]="tech.title"></i>

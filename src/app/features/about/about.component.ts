@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IiconInfo, IImageInfo } from '../../core/models';
-
+import { TitleCasePipe } from '@angular/common';
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [TitleCasePipe],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
