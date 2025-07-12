@@ -30,7 +30,7 @@
                 "glob": "**/*",
                 "input": "public"
               },
-              "src/assets"
+              "src/img"
             ],
             "styles": [
               "src/styles.scss"
@@ -39,6 +39,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/BitCrackWebApp/",
               "budgets": [
                 {
                   "type": "initial",
@@ -90,7 +91,7 @@
                 "glob": "**/*",
                 "input": "public"
               },
-              "src/assets"
+              "src/img"
             ],
             "styles": [
               "src/styles.scss"
