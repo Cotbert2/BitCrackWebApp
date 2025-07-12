@@ -273,6 +273,13 @@ Este proyecto aprovecha las características más modernas de Angular 19:
 - **OnChanges** para cambios de inputs
 - **AfterViewInit** para acceso al DOM
 
+## Imagen de docker
+Para descargar la imagen de Docker, puedes usar el siguiente comando:
+
+```bash
+docker pull cotbert2/bitcrack
+```
+
 ## �📝 Notas de Desarrollo
 
 - El proyecto utiliza Angular 19 con las últimas características del framework
