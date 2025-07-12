@@ -1,0 +1,5 @@
+
+<app-nav (toggleContactModal)="showContactModal = true"/>
+<router-outlet></router-outlet>
+<app-contact [open]="showContactModal" (close)="showContactModal = false"/>
+<app-footer/>

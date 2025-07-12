@@ -1,0 +1,48 @@
+@keyframes fadeScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+
+  animation: fadeScaleIn 0.6s ease-out;
+
+  &__title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ec4899; // Tailwind pink-500
+    margin-bottom: 1rem;
+  }
+
+  &__message {
+    font-size: 1.25rem;
+    color: #4b5563; // Tailwind gray-700
+    margin-bottom: 1.5rem;
+  }
+
+  &__button {
+    background-color: #ec4899;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #db2777; // Tailwind pink-600
+    }
+  }
+}

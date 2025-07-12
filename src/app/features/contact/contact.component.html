@@ -1,0 +1,114 @@
+<div
+  *ngIf="open"
+  class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+  (click)="onOverlayClick($event)"
+>
+  <div class="bg-white rounded-2xl p-8 shadow-xl w-full max-w-lg relative z-10">
+    <h2 class="text-xl font-semibold text-center mb-6 text-gray-800">Contact Us</h2>
+
+    <form [formGroup]="contactForm" (ngSubmit)="submit()" class="space-y-4">
+      <!-- Name -->
+      <div class="relative">
+        <div [ngClass]="{
+          'border-gray-300': name?.valid || !name?.touched,
+          'border-red-500': name?.invalid && name?.touched
+        }" class="flex items-center gap-3 border rounded-md px-3 py-2 transition-all">
+
+          <i [ngClass]="{
+            'text-gray-400': name?.valid || !name?.touched,
+            'text-red-500': name?.invalid && name?.touched
+          }" class="fas fa-user"></i>
+
+          <input
+            formControlName="name"
+            type="text"
+            placeholder="Your name"
+            class="w-full outline-none bg-transparent"
+          />
+        </div>
+        <p *ngIf="name?.invalid && name?.touched" class="text-sm text-red-500 mt-1">Name is required.</p>
+      </div>
+
+      <!-- Email -->
+      <div class="relative">
+        <div [ngClass]="{
+          'border-gray-300': email?.valid || !email?.touched,
+          'border-red-500': email?.invalid && email?.touched
+        }" class="flex items-center gap-3 border rounded-md px-3 py-2 transition-all">
+
+          <i [ngClass]="{
+            'text-gray-400': email?.valid || !email?.touched,
+            'text-red-500': email?.invalid && email?.touched
+          }" class="fas fa-envelope"></i>
+
+          <input
+            formControlName="email"
+            type="email"
+            placeholder="Your email"
+            class="w-full outline-none bg-transparent"
+          />
+        </div>
+        <p *ngIf="email?.hasError('required') && email?.touched" class="text-sm text-red-500 mt-1">Email is required.</p>
+        <p *ngIf="email?.hasError('email') && email?.touched" class="text-sm text-red-500 mt-1">Email is invalid.</p>
+      </div>
+
+      <!-- Phone -->
+      <div class="relative">
+        <div [ngClass]="{
+          'border-gray-300': phone?.valid || !phone?.touched,
+          'border-red-500': phone?.invalid && phone?.touched
+        }" class="flex items-center gap-3 border rounded-md px-3 py-2 transition-all">
+
+          <i [ngClass]="{
+            'text-gray-400': phone?.valid || !phone?.touched,
+            'text-red-500': phone?.invalid && phone?.touched
+          }" class="fas fa-phone"></i>
+
+          <input
+            formControlName="phone"
+            type="tel"
+            placeholder="Your phone number"
+            class="w-full outline-none bg-transparent"
+          />
+        </div>
+        <p *ngIf="phone?.hasError('required') && phone?.touched" class="text-sm text-red-500 mt-1">Phone number is required.</p>
+        <p *ngIf="phone?.hasError('pattern') && phone?.touched" class="text-sm text-red-500 mt-1">Phone number must be 10 digits.</p>
+      </div>
+
+      <!-- Message -->
+      <div class="relative">
+        <div [ngClass]="{
+          'border-gray-300': message?.valid || !message?.touched,
+          'border-red-500': message?.invalid && message?.touched
+        }" class="flex items-start gap-3 border rounded-md px-3 py-2 transition-all">
+
+          <i [ngClass]="{
+            'text-gray-400': message?.valid || !message?.touched,
+            'text-red-500': message?.invalid && message?.touched
+          }" class="fas fa-comment-dots mt-1"></i>
+
+          <textarea
+            formControlName="message"
+            placeholder="Your message"
+            class="w-full outline-none bg-transparent resize-y min-h-[100px]"
+          ></textarea>
+        </div>
+        <p *ngIf="message?.invalid && message?.touched" class="text-sm text-red-500 mt-1">Message is required.</p>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex justify-between pt-4">
+        <button type="submit" class="bg-pink-500 text-white font-semibold px-6 py-2 rounded-md hover:bg-pink-600 transition">
+          Send
+        </button>
+        <button
+          type="button"
+          (click)="close.emit()"
+          class="bg-gray-200 text-gray-800 font-semibold px-6 py-2 rounded-md hover:bg-gray-300 transition"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

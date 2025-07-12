@@ -1,0 +1,87 @@
+<section class="services-section py-20 px-6 bg-white">
+    <div class="max-w-6xl mx-auto text-center mb-16">
+        <h2 class="text-4xl font-bold text-purple-900 mb-4">
+            Our <span class="text-pink-500">Services</span>
+        </h2>
+        <p class="text-purple-700 text-lg max-w-2xl mx-auto">
+            At BitCrack, we deliver secure, scalable, and future-ready software solutions tailored to your business needs.
+        </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto mb-12 bg-purple-50 p-6 rounded-2xl">
+        <h3 class="text-xl font-semibold text-purple-800 mb-4 text-center">Filter by Price</h3>
+        <div class="flex flex-wrap justify-center gap-4">
+            <button 
+                (click)="updatePriceFilter(0, 500)" 
+                class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition-colors">
+                Up to {{ 500 | currency:'USD':'symbol':'1.0-0' }}
+            </button>
+            <button 
+                (click)="updatePriceFilter(500, 1500)" 
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                {{ 500 | currency:'USD':'symbol':'1.0-0' }} - {{ 1500 | currency:'USD':'symbol':'1.0-0' }}
+            </button>
+            <button 
+                (click)="updatePriceFilter(1500, 3000)" 
+                class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition-colors">
+                {{ 1500 | currency:'USD':'symbol':'1.0-0' }} - {{ 3000 | currency:'USD':'symbol':'1.0-0' }}
+            </button>
+            <button 
+                (click)="updatePriceFilter(3000, 5000)" 
+                class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                More than {{ 3000 | currency:'USD':'symbol':'1.0-0' }}
+            </button>
+            <button 
+                (click)="resetFilters()" 
+                class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">
+                All
+            </button>
+        </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div 
+            *ngFor="let service of filteredServices(); trackBy: trackByServiceId"
+            class="bg-purple-50 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all transform hover:-translate-y-1">
+            
+            <!-- Service Icon -->
+            <div class="text-pink-500 text-4xl mb-4 text-center">
+                <i [class]="getServiceIcon(service.id)"></i>
+            </div>
+            
+            <!-- Service Name -->
+            <h3 class="text-xl font-semibold text-purple-800 mb-3 text-center">
+                {{ service.name }}
+            </h3>
+            
+            <!-- Description -->
+            <p class="text-gray-600 mb-4 text-center min-h-[60px]">
+                {{ service.description }}
+            </p>
+            
+            <!-- Price with currency pipe -->
+            <div class="text-center">
+                <p class="text-2xl font-bold text-pink-500 mb-4">
+                    {{ service.price | currency:'USD':'symbol':'1.0-0' }}
+                </p>
+                
+                <!-- Discounted price (example of additional pipe usage) -->
+                <p class="text-sm text-gray-500 line-through">
+                    Regular price: {{ service.price * 1.2 | currency:'USD':'symbol':'1.0-0' }}
+                </p>
+                
+                <button class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-pink-600 transition-all mt-2">
+                    Request Quote
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message when no services -->
+    <div *ngIf="filteredServices().length === 0" class="text-center py-12">
+        <p class="text-gray-500 text-lg">No services found in the selected price range.</p>
+    </div>
+
+
+</section>

@@ -1,0 +1,56 @@
+<section class="about">
+    <!-- WHY BITCRACK -->
+    <div class="section why">
+        <h2>Why Choose Bitcrack?</h2>
+        <div class="features">
+            <div class="feature">
+                <h3>Security-First Development</h3>
+                <p>Security is not an afterthought — it's built into every stage of our development process.</p>
+            </div>
+            <div class="feature">
+                <h3>Agile Delivery</h3>
+                <p>We deliver reliable and scalable solutions in record time using agile methodologies.</p>
+            </div>
+            <div class="feature">
+                <h3>Experienced Engineers</h3>
+                <p>Our team combines decades of expertise in software engineering and cybersecurity.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- OUR PHILOSOPHY -->
+    <div class="section philosophy">
+        <h2>Our Philosophy</h2>
+        <p>
+            At <strong>Bitcrack</strong>, we believe that software should not only solve problems but also inspire
+            confidence.
+            We blend innovative thinking with deep technical knowledge to craft secure and future-proof solutions.
+        </p>
+    </div>
+
+    <!-- TRUST SECTION -->
+    <div class="section trust">
+        <h2>Trusted by</h2>
+        <div class="arousel-wrapper">
+
+            <div class="carousel-track">
+                @for (company of trustedCompanies; track company.src) {
+                    <img [src]="company.src" [alt]="company.alt">
+                }
+                @for (company of trustedCompanies; track company.src) {
+                    <img [src]="company.src" [alt]="company.alt">
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="section stack">
+        <h2>Technology Stack</h2>
+        <div class="stack-icons">
+            @for (tech of technologyStack; track tech.title) {
+                <i [class]="tech.class" [title]="tech.title"></i>
+            }
+        </div>
+    </div>
+</section>

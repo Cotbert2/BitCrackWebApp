@@ -1,0 +1,105 @@
+<div class="min-h-screen bg-gradient-to-br py-16">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-purple-900 mb-4">
+                {{'meet out' | titlecase}} <span class="text-pink-500">{{'amazing team' | titlecase}}</span>
+            </h1>
+            <p class="text-lg text-purple-700 max-w-3xl mx-auto">
+                Meet the talented professionals who make BitCrack possible. A diverse and passionate team driven by technology and innovation.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            @for (member of teamMembers(); track member.id) {
+                <div class="relative bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <!-- Member Photo -->
+                    <div class="flex justify-center mb-6">
+                        <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-pink-200 shadow-lg">
+                            <img 
+                                [src]="member.photoUrl" 
+                                [alt]="member.name"
+                                class="w-full h-full object-cover"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Member Info -->
+                    <div class="text-center mb-4">
+                        <h3 class="text-xl font-bold text-purple-900 mb-1">{{ member.name }}</h3>
+                        <p class="text-pink-500 font-semibold mb-3">{{ member.role }}</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">{{ member.description }}</p>
+                    </div>
+
+                    <!-- Technologies -->
+                    @if (member.technologies && member.technologies.length > 0) {
+                        <div class="mb-4">
+                            <h4 class="text-sm font-semibold text-purple-700 mb-2">Technologies:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                @for (tech of member.technologies; track tech) {
+                                    <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">
+                                        {{ tech }}
+                                    </span>
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Social Links -->
+                    <div class="flex justify-center space-x-4 pt-4 border-t border-gray-100">
+                        @if (member.linkedinUrl) {
+                            <a 
+                                [href]="member.linkedinUrl" 
+                                target="_blank" 
+                                class="text-purple-600 hover:text-pink-500 transition-colors"
+                                title="LinkedIn"
+                            >
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                        }
+                        @if (member.githubUrl) {
+                            <a 
+                                [href]="member.githubUrl" 
+                                target="_blank" 
+                                class="text-purple-600 hover:text-pink-500 transition-colors"
+                                title="GitHub"
+                            >
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        }
+                        @if (member.twitterUrl) {
+                            <a 
+                                [href]="member.twitterUrl" 
+                                target="_blank" 
+                                class="text-purple-600 hover:text-pink-500 transition-colors"
+                                title="Twitter"
+                            >
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                        }
+                        @if (member.email) {
+                            <a 
+                                [href]="'mailto:' + member.email" 
+                                class="text-purple-600 hover:text-pink-500 transition-colors"
+                                title="Email"
+                            >
+                                <i class="fas fa-envelope text-xl"></i>
+                            </a>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center mt-16">
+            <h2 class="text-2xl font-bold text-purple-900 mb-4">Want to join the team?</h2>
+            <p class="text-purple-700 mb-6">We are always looking for exceptional talent to join our family.</p>
+            <a 
+                href="mailto:careers@bitcrack.com" 
+                class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-8 py-3 rounded-full transition-all transform hover:scale-105 inline-block"
+            >
+                Join BitCrack
+            </a>
+        </div>
+    </div>
+</div>
