@@ -263,8 +263,6 @@ Este proyecto aprovecha las características más modernas de Angular 19:
 ### 🔍 Template Features
 - **Template reference variables** (#ref)
 - **Property binding** [property]
-- **Event binding** (event)
-- **Two-way binding** [(ngModel)]
 - **Structural directives** personalizadas
 
 ### 🏗️ Lifecycle Hooks
